@@ -9,7 +9,7 @@ import time
 import urllib.parse
 import zipfile
 
-import pgpy
+# import pgpy
 import requests
 from requests import Response
 from strenum import StrEnum
@@ -176,25 +176,25 @@ def self_update(
     )
     progress_bar.advance()
 
-    key, _ = pgpy.PGPKey.from_file("./Downloads/update_pubkey.asc")
-    progress_bar.advance()
+    # key, _ = pgpy.PGPKey.from_file("./Downloads/update_pubkey.asc")
+    # progress_bar.advance()
 
-    try:
-        with open("./download.tmp", "rb") as fd:
-            progress_bar.advance()
+    # try:
+    #     with open("./download.tmp", "rb") as fd:
+    #         progress_bar.advance()
 
-            data = fd.read()
-            progress_bar.advance()
+    #         data = fd.read()
+    #         progress_bar.advance()
 
-            signature = pgpy.PGPSignature.from_blob(better_signature)
-            progress_bar.advance()
+    #         signature = pgpy.PGPSignature.from_blob(better_signature)
+    #         progress_bar.advance()
 
-            key.verify(data, signature)
-            progress_bar.advance()
-        print("Signature check succeeded.")
-    except pgpy.errors.PGPError:
-        print("Signature mismatch.")
-        return
+    #         key.verify(data, signature)
+    #         progress_bar.advance()
+    #     print("Signature check succeeded.")
+    # except pgpy.errors.PGPError:
+    #     print("Signature mismatch.")
+    #     return
 
     print("Installing...")
 
