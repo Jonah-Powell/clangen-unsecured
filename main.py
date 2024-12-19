@@ -31,7 +31,7 @@ if not getattr(sys, "frozen", False):
         "pygame",
         "pygame_gui",
         "platformdirs",
-        "pgpy",
+        # "pgpy",
         "requests",
         "strenum",
     ]
